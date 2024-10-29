@@ -1,37 +1,35 @@
 {% extends 'layout.html' %}
-{% block title%}
-Agregar
-{% endblock %}
 {% block content %}
-<h1>Agregar pelicula</h1>
-    <form method="POST">
+<div>
+    <form method='POST' action="{{url_for('editar',id_ed=pelicula.id)}}">
         {{form.hidden_tag()}}
         <div>
             {{form.titulo.label}}
-            {{form.titulo()}}
+            {{form.titulo(value=pelicula.nombre)}}
         </div>
         <div>
             {{form.descripcion.label}}
-            {{form.descripcion(class="form-control" ,id="exampleFormControlTextarea1" ,rows="3")}}
+            {{form.descripcion(value=pelicula.descripcion, class="form-control" ,id="exampleFormControlTextarea1" ,rows="3")}}
         </div>
         <div>
             {{form.visto.label}}
-            {{form.visto()}}
+            {{form.visto(value=pelicula.visto)}}
         </div>
         <div>
             {{form.director.label}}
-            {{form.director()}}
+            {{form.director(value=pelicula.director)}}
         </div>
         <div>
             {{form.duracion.label}}
-            {{form.duracion()}}
+            {{form.duracion(value=pelicula.duracion)}}
         </div>
         <div>
             {{form.fecha.label}}
-            {{form.fecha(type="text",placeholder="DD-MM-YYYY")}}
+            {{form.fecha(value=fecha, type="text",placeholder="DD-MM-YYYY")}}
         </div>
         <div>
             {{ form.submit(class="btn btn-primary") }}  <!-- Botón de enviar -->
         </div>
     </form>
+</div>
 {% endblock %}

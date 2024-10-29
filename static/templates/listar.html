@@ -1,0 +1,21 @@
+{% extends 'layout.html'%}
+{% block content %}
+<h2>Listar por:</h2>
+<button><a href="id">ID</a></button>
+<button><a href="prioridad">Prioridad</a></button>
+<button><a href="año">Año</a></button>
+{% for pelis in peliculas %}
+<div>
+    <form action="{{url_for('editar',id_ed=pelis.id)}}" method="POST">
+    <span>{{pelis.nombre}}</span>&nbsp<span>{{pelis.visto}}</span><br>
+    <span>{{pelis.descripcion}}</span><span>{{pelis.estreno}}</span><br>
+    <span>{{pelis.director}}</span><span>{{pelis.duracion}}</span><span>{{pelis.prioridad}}</span>
+    <br><button type="submit">Editar</button>
+    </form>
+</div>
+<form action="{{url_for('eliminar',id_ed=pelis.id)}}" method="POST">
+    <button type="submit">Eliminar</button>
+</form>
+
+{% endfor %}
+{% endblock %}

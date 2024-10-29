@@ -4,10 +4,9 @@ from wtforms.validators import DataRequired
 
 class Formulario(FlaskForm):
     titulo=StringField('Titulo',validators=[DataRequired()])
-    descripcion=TextAreaField('Descripcion',validators=[DataRequired()],description="Agregue la descripcion")
-    visto=BooleanField('Visto',validators=[DataRequired()])
+    descripcion=TextAreaField('Descripcion',validators=[DataRequired()])
+    visto=BooleanField('Visto')
     director=StringField('Director',validators=[DataRequired()])
-    duracion=TimeField('Duracion',format='%H:%M',validators=[DataRequired()])
-    fecha=DateField('Fecha',format='%Y-%m-%D',validators=[DataRequired()])
-    prioridad=IntegerField('Prioridad',validators=[DataRequired()])
+    duracion=TimeField('Duracion',format='%H:%M:%S')
+    fecha=DateField('Fecha',format='%d-%m-%Y')
     submit=SubmitField('Enviar')
